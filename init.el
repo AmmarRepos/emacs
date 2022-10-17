@@ -6,13 +6,11 @@
 (global-linum-mode -1)			; Enable line numbers globally
 (menu-bar-mode -1)			; Disable the menu bar
 (global-visual-line-mode t)		; Visual line mode
+(setq display-line-numbers-type 'relative)
+(global-display-line-numbers-mode)
 (setq visible-bell t)			; Set up the visible bell
 (setq org-startup-indented t) ;To globally turn on Org Indent mode for all files
 
-;; theme
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme 'zenburn t)
-(set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 110)
 
 ;; First, place the following bootstrap code in your init-file:
 (defvar bootstrap-version)
@@ -30,6 +28,7 @@
 
 
 (straight-use-package 'vertico)
+(vertico-mode)
 (straight-use-package 'anki-editor)
 (straight-use-package 'denote)
 (straight-use-package 'eglot)
@@ -39,8 +38,21 @@
 (straight-use-package 'todotxt-mode)
 (straight-use-package 'lsp-mode)
 (straight-use-package 'apache-mode)
+(straight-use-package 'zenburn-theme)
+(straight-use-package 'js2-mode)
+(straight-use-package 'emmet-mode)
+(straight-use-package 'web-mode)
+(straight-use-package 'markdown-mode)
+(straight-use-package 'prettier)
+(straight-use-package 'wc-mode)
+
+
+;; theme
+(load-theme 'zenburn t)
+(set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 110)
 
 (require 'todotxt-mode)
+
 
 ;; (setq org-capture-templates
 ;;       '(("f"
@@ -72,3 +84,12 @@
 (defun connect-remote-obim ()
   (interactive)
   (dired "/ssh:root@178.62.203.39:/"))
+
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
