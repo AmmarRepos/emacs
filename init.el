@@ -49,6 +49,7 @@
 (straight-use-package 'tree-sitter-langs)
 (straight-use-package 'tree-sitter-indent)
 (straight-use-package 'csharp-mode)
+(straight-use-package 'impatient-mode)
 
 ;; theme
 (load-theme 'zenburn t)
