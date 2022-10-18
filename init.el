@@ -10,7 +10,7 @@
 (global-display-line-numbers-mode)
 (setq visible-bell t)			; Set up the visible bell
 (setq org-startup-indented t) ;To globally turn on Org Indent mode for all files
-
+ (electric-pair-local-mode 1)
 
 ;; First, place the following bootstrap code in your init-file:
 (defvar bootstrap-version)
@@ -45,7 +45,10 @@
 (straight-use-package 'markdown-mode)
 (straight-use-package 'prettier)
 (straight-use-package 'wc-mode)
-
+(straight-use-package 'tree-sitter)
+(straight-use-package 'tree-sitter-langs)
+(straight-use-package 'tree-sitter-indent)
+(straight-use-package 'csharp-mode)
 
 ;; theme
 (load-theme 'zenburn t)
