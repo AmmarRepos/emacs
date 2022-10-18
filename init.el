@@ -10,7 +10,8 @@
 (global-display-line-numbers-mode)
 (setq visible-bell t)			; Set up the visible bell
 (setq org-startup-indented t) ;To globally turn on Org Indent mode for all files
- (electric-pair-local-mode 1)
+(electric-pair-local-mode 1)
+(setq magit-view-git-manual-method 'man)
 
 ;; First, place the following bootstrap code in your init-file:
 (defvar bootstrap-version)
@@ -49,6 +50,8 @@
 (straight-use-package 'tree-sitter-langs)
 (straight-use-package 'tree-sitter-indent)
 (straight-use-package 'csharp-mode)
+(straight-use-package 'impatient-mode)
+(straight-use-package 'magit) ;;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
 
 ;; theme
 (load-theme 'zenburn t)
