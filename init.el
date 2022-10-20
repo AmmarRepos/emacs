@@ -29,7 +29,6 @@
 
 
 (straight-use-package 'vertico)
-(vertico-mode)
 (straight-use-package 'anki-editor)
 (straight-use-package 'denote)
 (straight-use-package 'eglot)
@@ -53,10 +52,10 @@
 (straight-use-package 'impatient-mode)
 (straight-use-package 'magit) ;;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
 
-;; theme
-(load-theme 'zenburn t)
-(set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 110)
 
+(load-theme 'zenburn t) ;; theme
+(set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 110)
+(vertico-mode)
 (require 'todotxt-mode)
 
 
