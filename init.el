@@ -50,7 +50,10 @@
 (straight-use-package 'tree-sitter-indent)
 (straight-use-package 'csharp-mode)
 (straight-use-package 'impatient-mode)
+<<<<<<< HEAD
 (straight-use-package 'magit) ;;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
+=======
+>>>>>>> origin/main
 
 
 (load-theme 'zenburn t) ;; theme
