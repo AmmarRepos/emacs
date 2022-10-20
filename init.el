@@ -50,17 +50,12 @@
 (straight-use-package 'tree-sitter-indent)
 (straight-use-package 'csharp-mode)
 (straight-use-package 'impatient-mode)
-<<<<<<< HEAD
 (straight-use-package 'magit) ;;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
-=======
->>>>>>> origin/main
-
 
 (load-theme 'zenburn t) ;; theme
 (set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 110)
 (vertico-mode)
 (require 'todotxt-mode)
-
 
 ;; (setq org-capture-templates
 ;;       '(("f"
@@ -78,7 +73,6 @@
 ;; 	 plain
 ;; 	 (file "~/.emacs.d/.org/anki/EMACS.org")
 ;; 	 "%[~/.emacs.d/.org/org_templates/anki_rdf.org]")))
-
 
 (setq denote-directory (expand-file-name "~/.emacs.d/notes/"))
 (setq denote-known-keywords '("representation" "accumulativeness" "atomicity"))
