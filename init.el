@@ -52,6 +52,9 @@
 (straight-use-package 'impatient-mode)
 (straight-use-package 'magit) ;;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
 (straight-use-package 'prettier-js)
+(straight-use-package 'csproj-mode)
+(straight-use-package 'dotnet)
+(straight-use-package 'projectile)
 
 (load-theme 'zenburn t) ;; theme
 (set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 110)
