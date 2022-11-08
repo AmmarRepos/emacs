@@ -55,6 +55,7 @@
 (straight-use-package 'csproj-mode)
 (straight-use-package 'dotnet)
 (straight-use-package 'projectile)
+(straight-use-package 'json-mode)
 
 (load-theme 'zenburn t) ;; theme
 (set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 110)
