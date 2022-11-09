@@ -56,6 +56,8 @@
 (straight-use-package 'dotnet)
 (straight-use-package 'projectile)
 (straight-use-package 'json-mode)
+(straight-use-package 'counsel-projectile)
+(straight-use-package 'treemacs)
 
 (load-theme 'zenburn t) ;; theme
 (set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 110)
@@ -100,3 +102,7 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.cshtml\\'" . web-mode))
+
+;; maybe not needed
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
