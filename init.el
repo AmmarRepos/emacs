@@ -13,6 +13,7 @@
 (electric-pair-local-mode 1)
 (setq magit-view-git-manual-method 'man)
 
+
 ;; First, place the following bootstrap code in your init-file:
 (defvar bootstrap-version)
 (let ((bootstrap-file
@@ -94,15 +95,15 @@
   (interactive)
   (dired "/ssh:root@178.62.203.39:/"))
 
-(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.cshtml\\'" . web-mode))
 
-;; maybe not needed
+;; Projectile
+(require 'projectile)
+(setq projectile-indexing-method 'native)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(projectile-register-project-type 'dotnet '("Program.cs")
+                                  :project-file "*.csproj"
+				  :compile "dotnet build"
+				  :test "dotnet test"
+				  :run "dotnet rung"
+				  :test-suffix ".spec")
+
