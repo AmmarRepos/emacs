@@ -59,6 +59,7 @@
 (straight-use-package 'json-mode)
 (straight-use-package 'counsel-projectile)
 (straight-use-package 'treemacs)
+(straight-use-package 'org-pomodoro)
 
 (load-theme 'zenburn t) ;; theme
 (set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 110)
@@ -107,3 +108,10 @@
 				  :run "dotnet rung"
 				  :test-suffix ".spec")
 
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.cshtml\\'" . web-mode))
+(setq web-mode-engines-alist
+      '(("php"    . "\\.phtml\\'")
+        ("blade"  . "\\.blade\\.")
+        ("cs"  . "\\.cshtml\\."))
+)
