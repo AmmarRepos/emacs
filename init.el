@@ -6,10 +6,10 @@
 (global-linum-mode -1)			;; Enable line numbers globally
 (menu-bar-mode -1)			;; Disable the menu bar
 (global-visual-line-mode t)		;; Visual line mode
-(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-type 't)
 (global-display-line-numbers-mode)
 (setq visible-bell t)			;; Set up the visible bell
-(setq org-startup-indented t) ;; To globally turn on Org Indent mode for all files
+(setq org-startup-indented t)           ;; To globally turn on Org Indent mode for all files
 (electric-pair-local-mode 1)
 (setq magit-view-git-manual-method 'man)
 
@@ -50,7 +50,7 @@
 (straight-use-package 'tree-sitter-indent)
 (straight-use-package 'csharp-mode)
 (straight-use-package 'impatient-mode)
-(straight-use-package 'magit) ;;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
+(straight-use-package 'magit)
 (straight-use-package 'prettier-js)
 (straight-use-package 'csproj-mode)
 (straight-use-package 'dotnet)
