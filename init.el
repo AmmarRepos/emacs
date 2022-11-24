@@ -230,15 +230,15 @@
       modus-themes-org-blocks 'gray-background ; {nil,'gray-background,'tinted-background}
 
       modus-themes-org-agenda ; this is an alist: read the manual or its doc string
-      '((header-block . (variable-pitch 1.3))
+      '((header-block . (variable-pitch 1.1))
         (header-date . (grayscale workaholic bold-today 1.1))
         (event . (accented varied))
         (scheduled . uniform)
         (habit . traffic-light))
 
       modus-themes-headings ; this is an alist: read the manual or its doc string
-      '((1 . (overline background variable-pitch 1.3))
-        (2 . (rainbow overline 1.1))
+      '((1 . (overline background variable-pitch 1))
+        (2 . (rainbow overline 1))
         (t . (semibold))))
 (load-theme 'modus-vivendi t)
 (set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 105)
