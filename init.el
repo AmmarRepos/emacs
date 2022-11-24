@@ -1,3 +1,6 @@
+;;; package --- Summary
+
+
 (setq inhibit-startup-message t)
 (scroll-bar-mode -1)			;; Disable visible scrollbar
 (tool-bar-mode -1)			;; Disable the toolbar
@@ -37,7 +40,6 @@
 (straight-use-package 'hide-lines)
 (straight-use-package 'multiple-cursors)
 (straight-use-package 'todotxt-mode)
-(straight-use-package 'lsp-mode)
 (straight-use-package 'apache-mode)
 (straight-use-package 'js2-mode)
 (straight-use-package 'emmet-mode)
@@ -48,7 +50,7 @@
 (straight-use-package 'tree-sitter)
 (straight-use-package 'tree-sitter-langs)
 (straight-use-package 'tree-sitter-indent)
-(straight-use-package 'csharp-mode)
+(straight-use-package 'csharp-mode) ;;; If you are running Emacs 29 or larger you are advised to remove this package and rely on what’s in core.
 (straight-use-package 'impatient-mode)
 (straight-use-package 'magit)
 (straight-use-package 'prettier-js)
@@ -62,7 +64,7 @@
 (straight-use-package 'eshell-syntax-highlighting)
 (straight-use-package 'dap-mode)
 
-;;(set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 110)
+
 (vertico-mode)
 (require 'todotxt-mode)
 
@@ -239,3 +241,5 @@
         (2 . (rainbow overline 1.1))
         (t . (semibold))))
 (load-theme 'modus-vivendi t)
+(set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 105)
+;;; init.el ends here
