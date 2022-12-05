@@ -1,6 +1,7 @@
 ;;; package --- Summary
 
-
+(setq global-subword-mode t)
+(setq global-visual-line-mode nil)
 (setq inhibit-startup-message t)
 (scroll-bar-mode -1)			;; Disable visible scrollbar
 (tool-bar-mode -1)			;; Disable the toolbar
