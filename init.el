@@ -64,7 +64,8 @@
 (straight-use-package 'org-pomodoro)
 (straight-use-package 'eshell-syntax-highlighting)
 (straight-use-package 'dap-mode)
-
+(straight-use-package 'apheleia)
+(apheleia-global-mode +1)
 
 (vertico-mode)
 (require 'todotxt-mode)
