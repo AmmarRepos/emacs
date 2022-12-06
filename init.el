@@ -67,6 +67,10 @@
 (straight-use-package 'apheleia)
 (apheleia-global-mode +1)
 
+(straight-use-package
+ '(ts-fold :type git :host github :repo "emacs-tree-sitter/ts-fold"))
+(setq ts-fold-summary-show t)
+
 (vertico-mode)
 (require 'todotxt-mode)
 
