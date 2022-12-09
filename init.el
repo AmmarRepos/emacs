@@ -67,13 +67,22 @@
 (straight-use-package 'apheleia)
 (apheleia-global-mode +1)
 
+
 (straight-use-package 'plantuml-mode)
 (setq plantuml-jar-path "~/.emacs.d/plantuml.jar")
 (setq plantuml-default-exec-mode 'jar)
 
 (setq org-plantuml-jar-path (expand-file-name "~/.emacs.d/plantuml.jar"))
-(add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
+;;(add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
 (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
+
+(require 'ob-js)
+(add-to-list 'org-babel-load-languages '(js . t))
+(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+(add-to-list 'org-babel-tangle-lang-exts '("js" . "js"))
+
+(org-babel-do-load-languages 'org-babel-load-languages '((shell . t)))
+
 
 (straight-use-package
  '(ts-fold :type git :host github :repo "emacs-tree-sitter/ts-fold"))
