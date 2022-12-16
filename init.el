@@ -16,7 +16,11 @@
 (setq org-startup-indented t)           ;; To globally turn on Org Indent mode for all files
 (electric-pair-local-mode 1)
 (setq magit-view-git-manual-method 'man)
-
+(desktop-save-mode 1)
+;; If integer, it means pixels, added below each line.
+;; If float, a scaling factor relative to current window's default line height.
+;; If nil, add no extra spacing.
+(setq-default line-spacing nil)
 
 ;; First, place the following bootstrap code in your init-file:
 (defvar bootstrap-version)
@@ -65,28 +69,23 @@
 (straight-use-package 'eshell-syntax-highlighting)
 (straight-use-package 'dap-mode)
 (straight-use-package 'apheleia)
+(straight-use-package '(ts-fold :type git :host github :repo "emacs-tree-sitter/ts-fold"))
+(straight-use-package 'plantuml-mode)
+
+(setq ts-fold-summary-show t)
 (apheleia-global-mode +1)
 
-
-(straight-use-package 'plantuml-mode)
 (setq plantuml-jar-path "~/.emacs.d/plantuml.jar")
 (setq plantuml-default-exec-mode 'jar)
-
 (setq org-plantuml-jar-path (expand-file-name "~/.emacs.d/plantuml.jar"))
-;;(add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
-(org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
 
 (require 'ob-js)
-(add-to-list 'org-babel-load-languages '(js . t))
+(add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
+(org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)(python . t)(shell . t)(js . t)))
+
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
 (add-to-list 'org-babel-tangle-lang-exts '("js" . "js"))
 
-(org-babel-do-load-languages 'org-babel-load-languages '((shell . t)))
-
-
-(straight-use-package
- '(ts-fold :type git :host github :repo "emacs-tree-sitter/ts-fold"))
-(setq ts-fold-summary-show t)
 
 (vertico-mode)
 (require 'todotxt-mode)
@@ -139,7 +138,19 @@
       '(("php"    . "\\.phtml\\'")
         ("blade"  . "\\.blade\\.")
         ("cs"  . "\\.cshtml\\."))
-)
+      )
+
+
+;; UTF-8 as default encoding
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8)
+(set-keyboard-coding-system 'utf-8-unix)
+
+;; do this especially on Windows, else python output problem
+(set-terminal-coding-system 'utf-8-unix)
+
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
