@@ -21,6 +21,8 @@
 ;; If float, a scaling factor relative to current window's default line height.
 ;; If nil, add no extra spacing.
 (setq-default line-spacing nil)
+;; move cursor by camelCase
+(global-subword-mode 1)
 
 ;; First, place the following bootstrap code in your init-file:
 (defvar bootstrap-version)
@@ -37,14 +39,14 @@
   (load bootstrap-file nil 'nomessage))
 
 (straight-use-package 'modus-themes)
-(straight-use-package 'vertico)
+;; (straight-use-package 'vertico)
 (straight-use-package 'anki-editor)
 (straight-use-package 'denote)
 (straight-use-package 'eglot)
 (straight-use-package 'company)
 (straight-use-package 'hide-lines)
 (straight-use-package 'multiple-cursors)
-(straight-use-package 'todotxt-mode)
+;; (straight-use-package 'todotxt-mode)
 (straight-use-package 'apache-mode)
 (straight-use-package 'js2-mode)
 (straight-use-package 'emmet-mode)
@@ -71,6 +73,9 @@
 (straight-use-package 'apheleia)
 (straight-use-package '(ts-fold :type git :host github :repo "emacs-tree-sitter/ts-fold"))
 (straight-use-package 'plantuml-mode)
+(straight-use-package 'rg)
+(straight-use-package 'pulsar)
+(straight-use-package 'consult)
 
 (setq ts-fold-summary-show t)
 (apheleia-global-mode +1)
@@ -87,8 +92,14 @@
 (add-to-list 'org-babel-tangle-lang-exts '("js" . "js"))
 
 
-(vertico-mode)
-(require 'todotxt-mode)
+;; (vertico-mode)
+(require 'icomplete)
+(icomplete-mode 1)
+(setq icomplete-hide-common-prefix nil)
+(setq icomplete-in-buffer t)
+(icomplete-vertical-mode)
+
+;;(require 'todotxt-mode)
 
 ;; (setq org-capture-templates
 ;;       '(("f"
@@ -276,4 +287,47 @@
         (t . (semibold))))
 (load-theme 'modus-vivendi t)
 (set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 105)
+
+(require 'pulsar)
+
+;; Check the default value of `pulsar-pulse-functions'.  That is where
+;; you add more commands that should cause a pulse after they are
+;; invoked
+
+
+;; pulsar
+(setq pulsar-pulse t)
+(setq pulsar-delay 0.055)
+(setq pulsar-iterations 10)
+(setq pulsar-face 'pulsar-magenta)
+(setq pulsar-highlight-face 'pulsar-yellow)
+
+(pulsar-global-mode 1)
+
+;; OR use the local mode for select mode hooks
+
+(dolist (hook '(org-mode-hook emacs-lisp-mode-hook))
+  (add-hook hook #'pulsar-mode))
+
+;; pulsar does not define any key bindings.  This is just a sample that
+;; respects the key binding conventions.  Evaluate:
+;;
+;;     (info "(elisp) Key Binding Conventions")
+;;
+;; The author uses C-x l for `pulsar-pulse-line' and C-x L for
+;; `pulsar-highlight-line'.
+;;
+;; You can replace `pulsar-highlight-line' with the command
+;; `pulsar-highlight-dwim'.
+(let ((map global-map))
+  (define-key map (kbd "C-c h p") #'pulsar-pulse-line)
+  (define-key map (kbd "C-c h h") #'pulsar-highlight-line))
+(add-hook 'next-error-hook #'pulsar-pulse-line)
+;; integration with the `consult' package:
+(add-hook 'consult-after-jump-hook #'pulsar-recenter-top)
+(add-hook 'consult-after-jump-hook #'pulsar-reveal-entry)
+
+;; integration with the built-in `imenu':
+(add-hook 'imenu-after-jump-hook #'pulsar-recenter-top)
+(add-hook 'imenu-after-jump-hook #'pulsar-reveal-entry)
 ;;; init.el ends here
