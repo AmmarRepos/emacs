@@ -9,9 +9,9 @@
 (set-fringe-mode 10)			;; Give some breathing room
 (global-linum-mode -1)			;; Enable line numbers globally
 (menu-bar-mode -1)			;; Disable the menu bar
-(global-visual-line-mode t)		;; Visual line mode
+;;(global-visual-line-mode t)		;; Visual line mode
 (setq display-line-numbers-type 't)
-(global-display-line-numbers-mode)
+;;(global-display-line-numbers-mode)
 (setq visible-bell t)			;; Set up the visible bell
 (setq org-startup-indented t)           ;; To globally turn on Org Indent mode for all files
 (electric-pair-local-mode 1)
@@ -23,6 +23,10 @@
 (setq-default line-spacing nil)
 ;; move cursor by camelCase
 (global-subword-mode 1)
+;;(global-tree-sitter-mode t)
+;;(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+(global-set-key (kbd "C-x x x") 'ts-fold-toggle)
+(winner-mode 1)
 
 ;; First, place the following bootstrap code in your init-file:
 (defvar bootstrap-version)
@@ -334,3 +338,4 @@
 (add-hook 'imenu-after-jump-hook #'pulsar-recenter-top)
 (add-hook 'imenu-after-jump-hook #'pulsar-reveal-entry)
 ;;; init.el ends here
+(put 'dired-find-alternate-file 'disabled nil)
