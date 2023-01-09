@@ -47,7 +47,7 @@
 (straight-use-package 'anki-editor)
 (straight-use-package 'denote)
 (straight-use-package 'eglot)
-(straight-use-package 'company)
+;; (straight-use-package 'company)
 (straight-use-package 'hide-lines)
 (straight-use-package 'multiple-cursors)
 ;; (straight-use-package 'todotxt-mode)
@@ -84,6 +84,7 @@
 (straight-use-package 'pulsar)
 (straight-use-package 'consult)
 (straight-use-package 'org-pomodoro)
+(straight-use-package 'corfu)
 
 (setq ts-fold-summary-show t)
 (apheleia-global-mode +1)
@@ -360,3 +361,4 @@
 (setq org-pomodoro-mode-line 't)
 (setq org-pomodoro-keep-killed-pomodoro-time 't)
 (setq org-pomodoro-manual-break 't)
+()
