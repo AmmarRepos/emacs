@@ -23,11 +23,10 @@
 (setq-default line-spacing nil)
 ;; move cursor by camelCase
 (global-subword-mode 1)
-;;(global-tree-sitter-mode t)
-;;(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
-(global-set-key (kbd "C-x x x") 'ts-fold-toggle)
+(global-tree-sitter-mode t)
+(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+(global-corfu-mode t)
 (winner-mode 1)
-
 ;; First, place the following bootstrap code in your init-file:
 (defvar bootstrap-version)
 (let ((bootstrap-file
@@ -84,7 +83,14 @@
 (straight-use-package 'pulsar)
 (straight-use-package 'consult)
 (straight-use-package 'org-pomodoro)
+(straight-use-package 'cape)
 (straight-use-package 'corfu)
+(straight-use-package 'orderless)
+
+
+(require 'orderless)
+(setq completion-styles '(orderless basic)
+      completion-category-overrides '((file (styles basic partial-completion))))
 
 (setq ts-fold-summary-show t)
 (apheleia-global-mode +1)
@@ -356,9 +362,25 @@
 (define-key global-map [?\s-w] 'delete-frame)
 (define-key global-map [?\s-x] 'exchange-point-and-mark)
 (define-key global-map [?\s-p] 'projectile-switch-project)
+(define-key global-map [?\s-n] 'mc/mark-next-lines)
+
+(global-set-key (kbd "C-x x x") 'ts-fold-toggle)
 
 (setq org-pomodoro-length 25 org-pomodoro-short-break-length 5)
 (setq org-pomodoro-mode-line 't)
 (setq org-pomodoro-keep-killed-pomodoro-time 't)
 (setq org-pomodoro-manual-break 't)
-()
+
+;; Add `completion-at-point-functions', used by `completion-at-point'.
+(add-to-list 'completion-at-point-functions #'cape-dabbrev)
+(add-to-list 'completion-at-point-functions #'cape-file)
+(add-to-list 'completion-at-point-functions #'cape-history)
+(add-to-list 'completion-at-point-functions #'cape-keyword)
+(add-to-list 'completion-at-point-functions #'cape-tex)
+(add-to-list 'completion-at-point-functions #'cape-sgml)
+(add-to-list 'completion-at-point-functions #'cape-rfc1345)
+(add-to-list 'completion-at-point-functions #'cape-abbrev)
+(add-to-list 'completion-at-point-functions #'cape-ispell)
+(add-to-list 'completion-at-point-functions #'cape-dict)
+(add-to-list 'completion-at-point-functions #'cape-symbol)
+(add-to-list 'completion-at-point-functions #'cape-line)
